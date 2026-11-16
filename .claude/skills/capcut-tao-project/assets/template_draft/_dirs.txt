@@ -1,0 +1,12 @@
+.
+./matting
+./common_attachment
+./Resources
+./adjust_mask
+./smart_crop
+./Resources/audioAlg
+./Resources/videoAlg
+./Resources/digitalHuman
+./Resources/digitalHuman/video
+./Resources/digitalHuman/bsinfo
+./Resources/digitalHuman/audio
