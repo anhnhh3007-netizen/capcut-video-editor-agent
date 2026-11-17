@@ -9,11 +9,26 @@ Công cụ: **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-maco
 
 ## 0. Hỏi trước — có làm bước này không
 Hỏi người dùng: **"Video này có voice over và phụ đề không?"** Không → bỏ qua toàn bộ skill, dựng theo nhạc như bình thường. Có → hỏi tiếp (gộp một lần):
-- **Nguồn voice over** (chọn được nhiều): Claude tạo bằng **ElevenLabs** (skill `elevenlabs-emotion-voiceover`: gắn thẻ cảm xúc → chọn model/giọng → demo ~10s → bản đầy đủ, mỗi bước người dùng duyệt, tốn credit của người dùng) / file tạo bằng công cụ bên thứ 3 (người dùng gửi lại) / file tự thu / lời nói gốc trong clip.
+- **Nguồn voice over** (chọn được nhiều): Claude tạo bằng **ElevenLabs** (skill `elevenlabs-emotion-voiceover`: gắn thẻ cảm xúc → báo đường cong cảm xúc (mục 0b) → chọn model/giọng → demo ~10s → bản đầy đủ, mỗi bước người dùng duyệt, tốn credit của người dùng) / file tạo bằng công cụ bên thứ 3 (người dùng gửi lại) / file tự thu / lời nói gốc trong clip.
 - **Ngôn ngữ phụ đề**: Tiếng Việt / Tiếng Anh / Song ngữ Việt – Anh. Song ngữ → người dùng **đưa kịch bản có sẵn cả 2 ngôn ngữ** (`Việt || English` mỗi dòng); không tự dịch.
 - **Kịch bản lời**: mỗi câu phụ đề một dòng, đúng thứ tự nói. Chưa có → xin người dùng.
 - **Letterbox:** KHÔNG hỏi. Mặc định không có dải đen; chỉ thêm khi người dùng tự yêu cầu (họ sẽ báo, kèm độ dày nếu muốn — video dọc dùng `--letterbox-px`).
 Chưa có file giọng → bảo người dùng gửi; đợi đủ file rồi mới làm tiếp.
+
+## 0b. Báo "đường cong cảm xúc của cả bài"
+Ngay khi có kịch bản lời (người dùng đưa hoặc Claude tự viết; với ElevenLabs là sau khi đã gắn thẻ cảm xúc), gửi kịch bản kèm phần này **trước khi chọn model/giọng, tạo giọng hay người dùng thu âm**:
+- Một bảng theo thứ tự lời đọc:
+
+  | Đoạn | Thẻ / cách đọc | Cảm xúc / vai trò | Lý do |
+  |---|---|---|---|
+  | Mở đầu | `[excited]` | Gây chú ý | Hook: con số, tên hành trình |
+  | … | … | … | … |
+  | Kết | `[warmly]` → `[excited]` | … | … |
+
+  Đoạn không có thẻ mới thì ghi "(giữ `[thẻ trước]`)". Giọng không phải ElevenLabs (tự thu, công cụ bên thứ 3) thì cột này ghi cách đọc gợi ý (vd "nhanh, hào hứng", "chậm, nhỏ lại") để người đọc làm theo. Cột lý do dựa vào chính chữ trong lời đọc (vd "thong thả", "yên bình" → `[warmly]`) và vị trí của đoạn trong mạch (trước/sau cao trào).
+- Một câu tóm hình dạng đường cong: cao trào ở đâu, đoạn lắng ở đâu, câu kết bật lên hay lắng xuống.
+- Một dòng nói rõ đây là lựa chọn của Claude, chưa ai nghe thử, và người dùng đổi được cảm xúc của bất kỳ đoạn nào trước khi tạo/thu giọng.
+Bỏ qua mục này khi nguồn là **lời nói gốc trong clip** (lời đã có sẵn, không đổi được).
 
 ## 1. Chuẩn bị (trước bước phân cảnh — lời đọc quyết định độ dài video)
 0. **Giọng ElevenLabs:** làm theo `elevenlabs-emotion-voiceover` (dùng chung 1 flow_id cho dự án). Khi người dùng chốt bản đầy đủ, lấy `full_res_url` bằng `creative_get_generations` → hỏi người dùng rồi tải về `<assets>/voice/` (`curl -L -o`). Kịch bản gửi model có thẻ `[…]`; kịch bản phụ đề **bỏ thẻ** (align_words.py tự bỏ).

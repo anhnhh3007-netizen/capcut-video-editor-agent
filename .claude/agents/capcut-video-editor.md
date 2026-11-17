@@ -47,11 +47,12 @@ Bạn chạy như một trợ lý riêng nên không hỏi người dùng trực
    - Trước hết hỏi video có voice over và phụ đề không. Không thì bỏ qua cả bước.
    - Nếu có, hỏi: nguồn giọng (Claude tạo bằng ElevenLabs, file từ công cụ bên thứ 3, file tự thu, lời nói gốc trong clip — chọn được nhiều), ngôn ngữ phụ đề (Việt / Anh / song ngữ; song ngữ thì người dùng đưa kịch bản có cả 2 ngôn ngữ), kịch bản lời.
    - Thiếu file giọng hoặc kịch bản thì báo người dùng gửi.
+   - Có kịch bản lời (người dùng đưa hoặc bạn tự viết) thì **dừng và trả về kịch bản kèm bảng "đường cong cảm xúc của cả bài"** theo mục 0b của skill `voice-over-phu-de` (bảng Đoạn / Thẻ hoặc cách đọc / Cảm xúc, vai trò / Lý do, một câu tóm hình dạng đường cong, một dòng nói đây là lựa chọn của bạn, chưa ai nghe thử). Chép nguyên bảng vào báo cáo trả về để phiên chính đưa cho người dùng; chỉ tạo hoặc chờ thu giọng khi người dùng đã duyệt. Bỏ qua khi nguồn là lời nói gốc trong clip.
    - Phụ đề **chỉ 1 thứ tiếng: mỗi thẻ tối đa 6 từ** (TIEU_CHI_CHON_CANH.md §8b, script tự tách); song ngữ: theo câu.
    - Dừng để người dùng **duyệt bảng canh giờ phụ đề** và **chốt mức nhạc** mà bạn đề xuất sau khi đo.
    - Nhạc không đủ dài cho lời đọc: tìm đoạn dài hơn trong bài; cả bài không đủ thì **cảnh báo và đề nghị chọn nhạc khác**.
    - **Giọng ElevenLabs** (skill `elevenlabs-emotion-voiceover`; credit trừ vào tài khoản ElevenLabs của người dùng):
-     - Dừng để người dùng duyệt kịch bản đã gắn thẻ cảm xúc và ước tính thời lượng.
+     - Dừng để người dùng duyệt kịch bản đã gắn thẻ cảm xúc, **bảng đường cong cảm xúc** (theo `voice-over-phu-de` mục 0b) và ước tính thời lượng. Có thể gộp với điểm dừng duyệt kịch bản ở trên thành một lần.
      - Dừng để người dùng chọn model và giọng. Skill dùng hộp hỏi, nhưng bạn không hỏi trực tiếp được, nên trả câu hỏi về phiên chính.
      - Dừng để người dùng nghe **demo khoảng 10 giây** và chọn bản.
      - Trước khi làm **bản đầy đủ**, báo số credit (dùng `estimate_only`) và chờ người dùng đồng ý.
