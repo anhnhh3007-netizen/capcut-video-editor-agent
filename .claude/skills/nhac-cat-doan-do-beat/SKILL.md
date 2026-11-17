@@ -5,7 +5,7 @@ description: Chuẩn bị nhạc cho video dựng theo nhịp — tìm đúng đ
 
 # Cắt đoạn nhạc & dò beat
 
-Công cụ: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`). Script: `.claude/skills/nhac-cat-doan-do-beat/scripts/`. Nhạc dùng chung để trong folder dự án `_Nhac/`.
+Công cụ: skill **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`). Script: `~/.claude/skills/nhac-cat-doan-do-beat/scripts/`. Nhạc dùng chung để trong folder dự án `_Nhac/`.
 
 ## Khi có nhạc mẫu (tách từ video mẫu) + bài đầy đủ
 1. Giải mã cả hai: `$BIN/pcm "BÀI.mp3" $W/song.f32 11025` và `$BIN/pcm _Nhac/nhac_tu_video_mau.m4a $W/ref.f32 11025`.

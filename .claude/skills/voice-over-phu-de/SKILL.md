@@ -5,7 +5,7 @@ description: Thêm voice over (giọng đọc tạo bằng ElevenLabs, từ côn
 
 # Voice over & phụ đề
 
-Công cụ: **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`), thư viện CapCut của **capcut-tao-project**. Script: `.claude/skills/voice-over-phu-de/scripts/`.
+Công cụ: **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`), thư viện CapCut của **capcut-tao-project**. Script: `~/.claude/skills/voice-over-phu-de/scripts/`.
 
 ## 0. Hỏi trước — có làm bước này không
 Hỏi người dùng: **"Video này có voice over và phụ đề không?"** Không → bỏ qua toàn bộ skill, dựng theo nhạc như bình thường. Có → hỏi tiếp (gộp một lần):
@@ -44,7 +44,7 @@ Tắt CapCut →
 python3 scripts/add_vo_subs.py "<draft>" --bin "$BIN" --assets <assets> --vo $W/vo.json \
    [--speech-files DJI_a.MP4 …] --music-volume <đã chốt> --subs $W/subs.json [--letterbox 2.35 | --letterbox-px 120 (video dọc)]
 ```
-→ `python3 .claude/skills/capcut-tao-project/scripts/validate_draft.py "<draft>"` phải OK.
+→ `python3 ~/.claude/skills/capcut-tao-project/scripts/validate_draft.py "<draft>"` phải OK.
 - Voice over trên track audio riêng; clip có lời gốc được bật lại tiếng, clip khác vẫn tắt.
 - Kiểu chữ (`--sub-style`): **`yellow-italic`** = vàng ấm #F0D66B, đậm nghiêng, viền tối rất mảnh, không bóng (mẫu phim người dùng gửi, đã dùng cho Hà Giang); `cinematic` = chữ trắng mảnh, bóng mờ nhẹ. Vị trí giữa–dưới; song ngữ: Việt trên, Anh nhỏ & xám nhạt dưới; tối đa 2 dòng, mỗi lần hiện ≥ 1s.
 - Font hệ thống của CapCut (`en.ttf`) — nếu dấu tiếng Việt hiển thị lỗi, báo người dùng đổi font trong CapCut (chọn font có hỗ trợ tiếng Việt).

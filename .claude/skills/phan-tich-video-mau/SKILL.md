@@ -7,7 +7,7 @@ description: Phân tích video mẫu (reference video tải từ Pinterest/TikTo
 
 Kết quả cần có: một bản ghi phân tích ngắn, cụ thể bằng số (thời gian, số cảnh, độ dài cảnh) mà bước dựng sau dùng trực tiếp được, và đối chiếu với footage của người dùng (khung hình, độ phân giải).
 
-Công cụ: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`). Script: `.claude/skills/phan-tich-video-mau/scripts/`. Việc tạm ở scratchpad.
+Công cụ: skill **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`). Script: `~/.claude/skills/phan-tich-video-mau/scripts/`. Việc tạm ở scratchpad.
 
 ## Các bước
 1. **Thông số:** `mdls` (thời lượng, W×H, bitrate audio). Ghi lại dọc 9:16 hay ngang 16:9.
@@ -19,7 +19,7 @@ Công cụ: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-
 7. **Đối chiếu footage:** kiểm tra độ phân giải footage (`mdls … kMDItemPixelWidth`). Nếu mẫu dọc mà footage ngang: crop 1920×1080 → 9:16 chỉ còn ~608×1080 — **hỏi người dùng** chọn khung (đăng TikTok/Reels thường 9:16). Hỏi luôn: 1 video cả chuyến hay mỗi ngày 1 video.
 
 ## Intro của mẫu
-Khi người dùng muốn intro "tương tự mẫu": `python3 scripts/intro_spec.py MẪU.mp4 $W/intro --bin "$BIN"` → `intro_spec.json` (điểm cắt, độ dài theo phách, tiêu đề, tiếng gõ) + `intro_sheet.jpg`; điền `type` từng shot sau khi xem. Tiếp theo: `.claude/skills/phan-canh-theo-beat/references/intro.md`.
+Khi người dùng muốn intro "tương tự mẫu": `python3 scripts/intro_spec.py MẪU.mp4 $W/intro --bin "$BIN"` → `intro_spec.json` (điểm cắt, độ dài theo phách, tiêu đề, tiếng gõ) + `intro_sheet.jpg`; điền `type` từng shot sau khi xem. Tiếp theo: `~/.claude/skills/phan-canh-theo-beat/references/intro.md`.
 
 ## Ghi nhớ từ các mẫu đã gặp
 - Mẫu "solo in Japan" (dọc, 55,8s): 49 cảnh, ~1,1s/cảnh, tiêu đề gõ chữ + sticker, phụ đề serif nhỏ kiểu độc thoại, cắt thẳng.

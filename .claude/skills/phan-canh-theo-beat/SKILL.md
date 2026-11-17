@@ -7,9 +7,9 @@ description: Lên kịch bản/bảng phân cảnh dựng video theo nhịp nh�
 
 Đầu vào: footage đã gom (skill loc-gom-footage), lưới beat (skill nhac-cat-doan-do-beat), phân tích video mẫu (nhịp, cấu trúc). Đầu ra: `edl.json` + `_Phan_canh_duyet_N.jpg` đã được người dùng **duyệt**.
 
-Công cụ: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`). Script: `.claude/skills/phan-canh-theo-beat/scripts/`.
+Công cụ: skill **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`). Script: `~/.claude/skills/phan-canh-theo-beat/scripts/`.
 
-**Tiêu chí chọn cảnh:** đọc `TIEU_CHI_CHON_CANH.md` (thư mục gốc dự án) trước (người dùng tự bổ sung). Khác với mặc định dưới đây hoặc trong `pick_shots.py` thì làm theo file đó; đổi con số thì sửa script cho khớp và báo người dùng.
+**Tiêu chí chọn cảnh:** đọc `~/Downloads/edit_video/TIEU_CHI_CHON_CANH.md` trước (người dùng tự bổ sung). Khác với mặc định dưới đây hoặc trong `pick_shots.py` thì làm theo file đó; đổi con số thì sửa script cho khớp và báo người dùng.
 
 ## Các bước
 1. **Hỏi kịch bản.** Có kịch bản → bám kịch bản (cùng người dùng làm rõ từng chặng). Không → tự dựng theo video mẫu. Hỏi luôn khung hình (16:9/9:16) và có chữ hay không nếu chưa chốt.

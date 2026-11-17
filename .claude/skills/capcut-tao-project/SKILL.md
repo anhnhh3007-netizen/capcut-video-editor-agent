@@ -5,7 +5,7 @@ description: Tạo mới hoặc sửa project CapCut (CapCut desktop 4.6 trên m
 
 # Tạo / sửa project CapCut bằng file
 
-Script: `.claude/skills/capcut-tao-project/scripts/` (`capcut_lib.py` = thư viện định dạng, `capcut_draft.py` = tạo project mới, `validate_draft.py` = kiểm tra). Công cụ media: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`).
+Script: `~/.claude/skills/capcut-tao-project/scripts/` (`capcut_lib.py` = thư viện định dạng, `capcut_draft.py` = tạo project mới, `validate_draft.py` = kiểm tra). Công cụ media: skill **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`).
 
 ## Yêu cầu của người dùng (luôn giữ)
 - **Không mở CapCut, không điều khiển màn hình** — chỉ ghi file qua quyền truy cập thư mục.
@@ -31,7 +31,7 @@ Script: `.claude/skills/capcut-tao-project/scripts/` (`capcut_lib.py` = thư vi�
 6. Báo người dùng: tên project (nằm đầu danh sách), nội dung timeline, nơi backup, điều chưa kiểm chứng (chưa mở thử). Nếu CapCut báo thiếu media → liên kết lại tới `<assets>`.
 
 ## Intro
-- `intro_build.py`: ghi intro (cảnh video + tiêu đề + dòng gõ + tiếng gõ tự tạo + nhạc intro riêng tuỳ chọn) vào vùng 0→intro_end của project; quy trình đầy đủ ở `.claude/skills/phan-canh-theo-beat/references/intro.md`.
+- `intro_build.py`: ghi intro (cảnh video + tiêu đề + dòng gõ + tiếng gõ tự tạo + nhạc intro riêng tuỳ chọn) vào vùng 0→intro_end của project; quy trình đầy đủ ở `~/.claude/skills/phan-canh-theo-beat/references/intro.md`.
 - Nhạc intro riêng: tạo project với `"intro": {"duration": <s>}` trong `project.json` → phần thân + nhạc chính bắt đầu sau intro, vùng intro để trống cho `intro_build.py --intro-music`.
 - `typing_sfx.py`: tiếng gõ phím tự tổng hợp, khớp từng ký tự.
 - Thử nghiệm an toàn: đặt `CAPCUT_ROOT=<thư mục tạm có bản sao project + root_meta_info.json>` để script ghi vào bản sao, không đụng danh sách project thật.

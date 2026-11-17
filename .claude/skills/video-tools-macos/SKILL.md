@@ -9,7 +9,7 @@ Máy này không có ffmpeg/ffprobe/opencv/scipy. Có sẵn: `swiftc` (AVFoundat
 Các tool ở `scripts/*.swift`, biên dịch một lần rồi dùng lại:
 
 ```bash
-BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)
+BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)
 ```
 
 | Tool | Cách gọi | Kết quả |

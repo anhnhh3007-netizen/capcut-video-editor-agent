@@ -7,9 +7,9 @@ description: Lọc, chia nhóm, đặt tên theo chủ đề và gom ảnh/video
 
 Mục tiêu: người dùng mở folder là biết ngay clip nào dùng cho đoạn nào của vlog, không mất file nào, và có thể hoàn tác.
 
-Công cụ đọc video: skill **video-tools-macos** (`BIN=$(bash .claude/skills/video-tools-macos/scripts/build.sh)`). Script của skill này ở `.claude/skills/loc-gom-footage/scripts/`. Việc nặng để ở scratchpad (`WORK=<scratchpad>/footage`).
+Công cụ đọc video: skill **video-tools-macos** (`BIN=$(bash ~/.claude/skills/video-tools-macos/scripts/build.sh)`). Script của skill này ở `~/.claude/skills/loc-gom-footage/scripts/`. Việc nặng để ở scratchpad (`WORK=<scratchpad>/footage`).
 
-**Tiêu chí lọc/loại clip:** đọc `TIEU_CHI_CHON_CANH.md` (thư mục gốc dự án) (mục 1–2 và "Bổ sung của tôi") trước; khác mặc định thì làm theo file đó (vd đổi ngưỡng → truyền `--short`/`--dark` cho `find_bad_clips.py`).
+**Tiêu chí lọc/loại clip:** đọc `~/Downloads/edit_video/TIEU_CHI_CHON_CANH.md` (mục 1–2 và "Bổ sung của tôi") trước; khác mặc định thì làm theo file đó (vd đổi ngưỡng → truyền `--short`/`--dark` cho `find_bad_clips.py`).
 
 ## Quy trình
 
